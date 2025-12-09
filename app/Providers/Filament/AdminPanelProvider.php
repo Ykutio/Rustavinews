@@ -27,6 +27,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Rustavi News')
+            ->brandLogo(asset('RustaviNewsLogo.png'))
+            ->brandLogoHeight('60px')
             ->colors([
                 'primary' => Color::Amber,
             ])
