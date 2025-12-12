@@ -6,6 +6,8 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -30,6 +32,33 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Rustavi News')
             ->brandLogo(asset('RustaviNewsLogo.png'))
             ->brandLogoHeight('60px')
+            ->profile()
+            ->navigationGroups([
+                NavigationGroup::make('AdminTools')
+                    ->collapsed(),
+                NavigationGroup::make('Pages')
+                    ->collapsed(),
+                NavigationGroup::make('Links')
+                    ->collapsed(),
+            ])
+            ->navigationItems([
+                NavigationItem::make('About Us')
+                    ->url('https://rustavinews.local/', true)
+                    ->icon('heroicon-o-identification')
+                    ->group('Pages'),
+                NavigationItem::make('Contacts')
+                    ->url('https://rustavinews.local/', true)
+                    ->icon('heroicon-o-phone')
+                    ->group('Pages'),
+                NavigationItem::make('Google')
+                    ->url('https://google.com', true)
+                    ->icon('heroicon-o-globe-alt')
+                    ->group('Links'),
+                NavigationItem::make('Youtube')
+                    ->url('https://youtube.com', true)
+                    ->icon('heroicon-o-play-circle')
+                    ->group('Links'),
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
